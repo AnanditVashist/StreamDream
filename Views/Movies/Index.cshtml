@@ -1,0 +1,13 @@
+﻿@model IEnumerable<StreamDream.Models.Movie>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Movies</h2>
+<a href="@Url.Action("New")" class="btn btn-primary">New Movie</a>
+@foreach (var movie in Model)
+{
+    <p><a href="@Url.Action("Edit",new { @movie.Id })">@movie.Name</a></p>
+}
+

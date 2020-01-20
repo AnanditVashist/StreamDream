@@ -1,0 +1,15 @@
+﻿@model IEnumerable<StreamDream.Models.Customer>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+@foreach (var customer in Model)
+{
+<ul>
+    <li><a href="@Url.Action("Details",new { @customer.Id })">@customer.Name</a>-@customer.MembershipType.Name</li>
+</ul>
+}
+<a href="@Url.Action("New")">Add Customer</a>
+

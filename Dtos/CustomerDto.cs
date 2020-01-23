@@ -1,9 +1,9 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace StreamDream.Models
+namespace StreamDream.Dtos
 {
-    public class Customer
+    public class CustomerDto
     {
         public int Id { get; set; }
         [Required]
@@ -11,8 +11,7 @@ namespace StreamDream.Models
         public string Name { get; set; }
         public DateTime? Birthdate { get; set; }
         public bool IsSubscribedToNewsletter { get; set; }
-        public MembershipType MembershipType { get; set; }
-        [Min18YearsIfMember]
+        //[/*Min18YearsIfMember]*/
         public byte MembershipTypeId { get; set; }
     }
 }

@@ -1,9 +1,9 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace StreamDream.Models
+namespace StreamDream.Dtos
 {
-    public class Movie
+    public class MovieDto
     {
         public int Id { get; set; }
         [Required]
@@ -12,7 +12,6 @@ namespace StreamDream.Models
         [Required]
 
         public DateTime ReleasedOn { get; set; }
-        public Genre Genre { get; set; }
         [Required]
         public int GenreId { get; set; }
         [Range(1, 20, ErrorMessage = "The field number in stock should be between 1 to 20")]

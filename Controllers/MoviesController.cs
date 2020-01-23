@@ -42,14 +42,17 @@ namespace StreamDream.Controllers
             return View("MoviesForm", viewModel);
         }
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Save(Movie movie)
         {
             if (!ModelState.IsValid)
             {
                 var viewModel = new MovieViewModel
                 {
-
+                    Movie = movie,
+                    Genre = _context.Genre
                 };
+                return View("MoviesForm", viewModel);
             }
             if (movie.Id == 0)
             {
@@ -61,7 +64,7 @@ namespace StreamDream.Controllers
                 var movieInDb = _context.Movies.Single(m => m.Id == movie.Id);
                 movieInDb.Name = movie.Name;
                 movieInDb.ReleasedOn = movie.ReleasedOn;
-                movieInDb.Genre = movie.Genre;
+                movieInDb.GenreId = movie.GenreId;
             }
             _context.SaveChanges();
             return RedirectToAction("Index");

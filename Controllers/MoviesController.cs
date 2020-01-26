@@ -20,14 +20,15 @@ namespace StreamDream.Controllers
         // GET: Movies
         public ActionResult Index()
         {
-            var movies = _context.Movies;
+            var movies = _context.Movies.Include(m => m.Genre).ToList();
             return View(movies);
         }
         public ActionResult New()
         {
             var viewModel = new MovieViewModel
             {
-                Genre = _context.Genre
+                Genre = _context.Genre,
+                Movie = new Movie()
             };
             return View("MoviesForm", viewModel);
         }

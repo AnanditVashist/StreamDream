@@ -31,6 +31,7 @@
 
     </div>
     @Html.HiddenFor(m => m.Movie.Id)
+    @Html.AntiForgeryToken()
     <button class="btn btn-primary">Add</button>
     @section scripts
     {

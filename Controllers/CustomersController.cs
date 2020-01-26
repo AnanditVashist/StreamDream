@@ -20,8 +20,7 @@ namespace StreamDream.Controllers
         // GET: Customers
         public ActionResult Index()
         {
-            var customers = _context.Customers.Include(C => C.MembershipType).ToList();
-            return View(customers);
+            return View();
         }
         public ActionResult Details(int id)
         {

@@ -12,6 +12,7 @@ namespace StreamDream.Models
         [Required]
 
         public DateTime ReleasedOn { get; set; }
+        
         public Genre Genre { get; set; }
         [Required]
         public int GenreId { get; set; }
